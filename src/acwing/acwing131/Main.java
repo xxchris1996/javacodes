@@ -1,9 +1,5 @@
-package acwing131;
+package acwing.acwing131;
 
-import demo.Array;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 

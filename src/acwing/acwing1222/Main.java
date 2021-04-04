@@ -1,4 +1,4 @@
-package acwing1222;
+package acwing.acwing1222;
 
 import java.util.Scanner;
 

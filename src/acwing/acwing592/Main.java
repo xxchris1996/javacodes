@@ -1,4 +1,4 @@
-package acwing592;
+package acwing.acwing592;
 
 import java.util.PriorityQueue;
 import java.util.Scanner;

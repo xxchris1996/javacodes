@@ -1,4 +1,4 @@
-package acwing1497;
+package acwing.acwing1497;
 
 import java.util.*;
 
