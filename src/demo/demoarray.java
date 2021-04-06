@@ -1,6 +1,7 @@
 package demo;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class demoarray {
     public static void main(String[] args) {
@@ -18,6 +19,12 @@ public class demoarray {
         for (int[] ints : arrs) {
             System.out.println(Arrays.toString(ints));
         }
+        Arrays.sort(arrs, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return 0;
+            }
+        });
     }
 
 }
