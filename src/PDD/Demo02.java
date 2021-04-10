@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Demo02 {
     static int method(int num){
         if(num <= 20 || num %10 == 0) return num;
-        if(num < 1 || num > 100) return -1;
+//        if(num < 1 || num > 100) return -1;
         for(int i = 1; ; i++){
             int tmp = num * i;
             if(check(tmp)) return tmp;
@@ -31,7 +31,7 @@ public class Demo02 {
 //        Scanner sc =new Scanner(System.in);
 //        int num = sc.nextInt();
 //        int res = method(num);
-        for(int i = 1; i <= 100; i++){
+        for(int i = 1; i <= 1000000; i++){
             int tmp=method(i);
             System.out.println(i + "-" +tmp);
         }
