@@ -1,9 +1,6 @@
 package demo;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class Demodeque {
     public static void main(String[] args) {
@@ -12,6 +9,10 @@ public class Demodeque {
         deque.addFirst(2);
         deque.add(3);
         Queue<Integer> queue = new ArrayDeque<>();
+
+        ArrayList<Integer> list1 = new ArrayList<>();
+        LinkedList<Integer> list = new LinkedList<>();
+
 
     }
 }
