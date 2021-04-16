@@ -28,8 +28,9 @@ public class DemoJoinTester01 implements Runnable{
         thread2.start();
 
         try {
-            thread2.join();
+
             thread1.join();
+            thread2.join();
 
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
