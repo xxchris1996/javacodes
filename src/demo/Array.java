@@ -22,7 +22,5 @@ public class Array {
         System.out.println(list1);
         int i = list1.removeLast();
         System.out.println(list1);
-
-
     }
 }   
