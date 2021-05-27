@@ -1,0 +1,106 @@
+package Producer_Consumer;
+
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
+//使用阻塞队列BlockingQueue解决生产者消费者
+public class BlockingQueueConsumerProducer {
+    public static void main(String[] args) {
+        Resource3 resource = new Resource3();
+        //生产者线程
+        ProducerThread3 p = new ProducerThread3(resource);
+        //多个消费者
+        ConsumerThread3 c1 = new ConsumerThread3(resource);
+        ConsumerThread3 c2 = new ConsumerThread3(resource);
+//        ConsumerThread3 c3 = new ConsumerThread3(resource);
+
+        p.start();
+        c1.start();
+        c2.start();
+//        c3.start();
+    }
+}
+/**
+ * 消费者线程
+ * @author tangzhijing
+ *
+ */
+class ConsumerThread3 extends Thread {
+    private Resource3 resource3;
+
+    public ConsumerThread3(Resource3 resource) {
+        this.resource3 = resource;
+        //setName("消费者");
+    }
+
+    public void run() {
+        while (true) {
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+            resource3.remove();
+        }
+    }
+}
+/**
+ * 生产者线程
+ * @author tangzhijing
+ *
+ */
+class ProducerThread3 extends Thread{
+    private Resource3 resource3;
+    public ProducerThread3(Resource3 resource) {
+        this.resource3 = resource;
+        //setName("生产者");
+    }
+
+    public void run() {
+        while (true) {
+//            try {
+//                Thread.sleep((long) (1000 * Math.random()));
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+            resource3.add();
+        }
+    }
+}
+class Resource3{
+    private BlockingQueue<Integer> resourceQueue = new LinkedBlockingQueue<>(10);
+    /**
+     * 向资源池中添加资源
+     */
+    private int num;
+    public void add(){
+        if(num > 100) return;
+        try {
+            num++;
+            resourceQueue.put(num); //1当做生产和消费的Integer资源
+            System.out.println("生产者" + Thread.currentThread().getName()
+                    + "生产"+ num);
+//            System.out.println("生产者" + Thread.currentThread().getName()
+//                    + "生产一件资源," + "当前资源池有" + resourceQueue.size() +
+//                    "个资源");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     * 向资源池中移除资源
+     */
+    public void remove(){
+        try {
+            Integer take = resourceQueue.take();
+            System.out.println("消费者" + Thread.currentThread().getName() +
+                    "消耗" + take);
+            if(num >= 100) return;
+//            System.out.println("消费者" + Thread.currentThread().getName() +
+//                    "消耗一件资源," + "当前资源池有" + resourceQueue.size()
+//                    + "个资源");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}

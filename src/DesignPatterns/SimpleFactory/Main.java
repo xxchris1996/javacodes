@@ -9,4 +9,5 @@ public class Main {
         double result = oper.GetResult();
         System.out.println(result);
     }
+
 }

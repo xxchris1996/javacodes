@@ -1,6 +1,7 @@
 package demo;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 public class Array {
@@ -22,5 +23,13 @@ public class Array {
         System.out.println(list1);
         int i = list1.removeLast();
         System.out.println(list1);
+        int[][] ranges = new int[][]{{1,2},{3,4},{5,6}};
+        Arrays.sort(ranges, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return 0;
+            }
+        });
+
     }
 }   
